@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AstraEditor.GameProject"
         mc:Ignorable="d" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-        Title="Project Browser Dialog" Height="450" Width="800">
+        Title="Project Browser" Height="600" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -13,16 +13,12 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
-            <ToggleButton Content="Open Project" x:Name="openProjectButton" FontSize="32"/>
-            <ToggleButton Content="New Project" x:Name="newProjectButton" FontSize="32" Margin="30, 0, 0 , 0" />
+            <ToggleButton Content="Open Project" x:Name="openProjectButton" FontSize="32" Click="OnToggleButton_Click" IsChecked="True"/>
+            <ToggleButton Content="New Project" x:Name="newProjectButton" FontSize="32" Margin="30, 0, 0 , 0" Click="OnToggleButton_Click"  IsChecked="False"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
-            <Border Width="800" Background="Lavender">
-                <TextBlock FontSize="72" Text="Open Project" />
-            </Border>
-            <Border Width="800" Background="LightSeaGreen">
-                <TextBlock FontSize="72" Text="Create Project" />
-            </Border>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" x:Name="browserContent">
+            <local:OpenProjectView />
+            <local:NewProjectView />
         </StackPanel>
         
     </Grid>
