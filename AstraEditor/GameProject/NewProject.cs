@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Text;
 
 namespace AstraEditor.GameProject
@@ -50,7 +52,20 @@ namespace AstraEditor.GameProject
 
         public NewProject()
         {
+            try
+            {
+                var templateFiles = Directory.GetFiles(_templatePath, "template.xml", SearchOption.AllDirectories);
+                Debug.Assert(templateFiles.Any());
 
+                foreach (var f in templateFiles) { 
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            
         }
     }
 }
